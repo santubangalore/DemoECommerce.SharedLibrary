@@ -4,7 +4,7 @@ using Serilog;
 
 namespace eCommerce.SharedLibrary.Logs
 {
-    internal class LogException
+    public class LogException
     {
         public static void LogExceptions(Exception exception) {
             LogToFile(exception.Message);

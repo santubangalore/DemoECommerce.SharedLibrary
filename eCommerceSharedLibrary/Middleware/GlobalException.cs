@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using System.Net;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
+using eCommerce.SharedLibrary.Logs;
 namespace eCommerce.SharedLibrary.Middleware
 {
     public class GlobalException(RequestDelegate next)
@@ -42,7 +43,13 @@ namespace eCommerce.SharedLibrary.Middleware
             }
             catch (Exception ex)
             {
-
+                LogException.LogExceptions(ex);
+                if(ex is TaskCanceledException || ex is TimeoutException)
+                {
+                    message = "Request timeout. Please try again.";
+                    title = "Request Timeout";
+                    statusCode = (int)HttpStatusCode.RequestTimeout;
+                }
             }
         }
 
