@@ -44,12 +44,15 @@ namespace eCommerce.SharedLibrary.Middleware
             catch (Exception ex)
             {
                 LogException.LogExceptions(ex);
-                if(ex is TaskCanceledException || ex is TimeoutException)
+                // Handle specific exceptions , request timeout, 408 error;
+                if (ex is TaskCanceledException || ex is TimeoutException)
                 {
                     message = "Request timeout. Please try again.";
                     title = "Request Timeout";
                     statusCode = (int)HttpStatusCode.RequestTimeout;
                 }
+                await ModifyHeder(context, message, title, statusCode);
+
             }
         }
 
