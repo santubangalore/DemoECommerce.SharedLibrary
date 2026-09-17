@@ -56,7 +56,7 @@ namespace eCommerce.SharedLibrary.Middleware
             }
         }
 
-        private async Task ModifyHeder(HttpContext context, string message, string title, int statusCode)
+        private static async Task ModifyHeder(HttpContext context, string message, string title, int statusCode)
         {
             context.Response.StatusCode = statusCode;
             context.Response.ContentType = "application/json";
