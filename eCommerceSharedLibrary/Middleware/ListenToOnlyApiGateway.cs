@@ -12,15 +12,15 @@ namespace eCommerce.SharedLibrary.Middleware
             var signedHeaders = context.Request.Headers["Api-Gateway"];
 
             //null means, the request is not coming from the API Gateway, so we will return 503 service unavailable.
-            if (signedHeaders.FirstOrDefault() is null) { 
-                context.Response.StatusCode = StatusCodes.Status503ServiceUnavailable;
-                await context.Response.WriteAsync("Sorry, service unavailable.");
-                return;
-            }
-            else
-            {
-                await next(context);
-            }
+            //if (signedHeaders.FirstOrDefault() is null) { 
+            //    context.Response.StatusCode = StatusCodes.Status503ServiceUnavailable;
+            //    await context.Response.WriteAsync("Sorry, service unavailable.");
+            //    return;
+            //}
+            //else
+            //{
+            //    await next(context);
+            //}
         }
     }
 }

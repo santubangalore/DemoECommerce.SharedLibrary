@@ -11,7 +11,7 @@ using System.Text;
 
 namespace eCommerce.SharedLibrary.DependencyInjection
 {
-    public static class SharedContainer
+    public static class SharedServiceContainer
     {
         public static IServiceCollection AddSharedServices<TContext>(this IServiceCollection services,
             IConfiguration config, string fileName) where TContext : DbContext
