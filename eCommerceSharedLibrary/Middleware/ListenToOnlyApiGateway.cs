@@ -19,7 +19,7 @@ namespace eCommerce.SharedLibrary.Middleware
             //}
             //else
             //{
-            //    await next(context);
+            await next(context);
             //}
         }
     }

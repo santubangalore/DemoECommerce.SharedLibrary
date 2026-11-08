@@ -12,18 +12,18 @@ namespace eCommerce.SharedLibrary.Logs
             LogToDebugger(exception.Message);
         }
 
-        private static void LogToFile(string message)
+        public static void LogToFile(string message)
         {
             Log.Information(message);
             // Code to log the message to a file
         }   
 
-        private static void LogToConsole(string message)
+        public static void LogToConsole(string message)
         {
             Log.Warning(message);
         }
 
-        private static void LogToDebugger(string message)
+        public static void LogToDebugger(string message)
         {
             Log.Debug(message);
         }
